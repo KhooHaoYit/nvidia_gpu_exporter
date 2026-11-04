@@ -8,6 +8,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: {{ include "nvidia-gpu-exporter.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "nvidia-gpu-exporter.labels" . | nindent 4 }}
 spec:

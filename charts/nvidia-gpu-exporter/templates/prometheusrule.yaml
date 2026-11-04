@@ -44,6 +44,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: {{ template "nvidia-gpu-exporter.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "nvidia-gpu-exporter.labels" . | nindent 4 }}
   {{- with $pr.additionalLabels }}
