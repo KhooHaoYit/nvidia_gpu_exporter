@@ -1047,7 +1047,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_utilization_gpu_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_utilization_gpu_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1144,7 +1144,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_utilization_memory_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_utilization_memory_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1240,7 +1240,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_memory_used_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_memory_total_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_memory_used_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_memory_total_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1335,7 +1335,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_memory_used_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_memory_used_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1446,7 +1446,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_temperature_gpu{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_temperature_gpu{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1541,7 +1541,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_power_draw_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_power_draw_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1638,7 +1638,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_fan_speed_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_fan_speed_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1734,7 +1734,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_power_draw_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / (nvidia_smi_enforced_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"})) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_power_draw_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / (nvidia_smi_enforced_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"})) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -1831,7 +1831,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(rate(nvidia_smi_clocks_event_reasons_counters_sw_power_cap_seconds{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval])) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (rate(nvidia_smi_clocks_event_reasons_counters_sw_power_cap_seconds{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval])) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -2093,7 +2093,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_pstate{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_pstate{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
           "instant": false,
           "range": true,
           "refId": "A",
@@ -2198,7 +2198,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_clocks_current_graphics_clock_hz{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_clocks_current_graphics_clock_hz{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -2293,7 +2293,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_clocks_current_memory_clock_hz{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_clocks_current_memory_clock_hz{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -2404,7 +2404,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_utilization_encoder_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_utilization_encoder_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -2501,7 +2501,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_utilization_decoder_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_utilization_decoder_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -2598,7 +2598,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_encoder_stats_session_count{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_encoder_stats_session_count{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -2695,7 +2695,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_encoder_stats_average_fps{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_encoder_stats_average_fps{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -2791,7 +2791,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_encoder_stats_average_latency{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_encoder_stats_average_latency{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -3610,7 +3610,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "nvidia_smi_compute_apps_last_collect_success{instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(instance) (nvidia_smi_compute_apps_last_collect_success{instance=\"$node\", job=\"$job\"})",
               "legendFormat": "",
               "refId": "A"
             }
@@ -3693,7 +3693,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "nvidia_smi_graphics_apps_last_collect_success{instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(instance) (nvidia_smi_graphics_apps_last_collect_success{instance=\"$node\", job=\"$job\"})",
               "legendFormat": "",
               "refId": "A"
             }
@@ -3899,7 +3899,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_gpu_recovery_action{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_gpu_recovery_action{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -4008,7 +4008,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(rate(nvidia_smi_energy_joules_total{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval])) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (rate(nvidia_smi_energy_joules_total{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval])) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -4103,7 +4103,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_pcie_throughput_tx_bytes_per_second{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_pcie_throughput_tx_bytes_per_second{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -4198,7 +4198,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_pcie_throughput_rx_bytes_per_second{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_pcie_throughput_rx_bytes_per_second{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "A",
@@ -4727,7 +4727,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "(nvidia_smi_sm_activity_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_sm_activity_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * on(uuid) group_left(index, name) nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}",
               "instant": false,
               "range": true,
               "refId": "B",

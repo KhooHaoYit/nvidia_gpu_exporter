@@ -175,7 +175,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "nvidia_smi_gpu_recovery_action{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_gpu_recovery_action{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -527,7 +527,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_pstate{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_pstate{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -759,7 +759,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "nvidia_smi_compute_mode{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_compute_mode{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -905,7 +905,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / (nvidia_smi_enforced_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
+          "expr": "sum by(uuid) (nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / (nvidia_smi_enforced_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}))",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1058,7 +1058,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_temperature_gpu{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_temperature_gpu{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -1125,7 +1125,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_clocks_max_graphics_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_clocks_max_graphics_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1192,7 +1192,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_clocks_max_memory_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_clocks_max_memory_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1267,7 +1267,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_memory_used_bytes{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_memory_total_bytes{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_memory_used_bytes{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_memory_total_bytes{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1443,7 +1443,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_utilization_memory_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_utilization_memory_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -1541,7 +1541,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_utilization_gpu_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_utilization_gpu_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1749,7 +1749,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_clocks_event_reasons_gpu_idle{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_gpu_idle{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_event_reasons_gpu_idle{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_gpu_idle{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "Idle",
           "refId": "A"
         },
@@ -1758,7 +1758,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_clocks_event_reasons_sw_power_cap{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_sw_power_cap{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_event_reasons_sw_power_cap{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_sw_power_cap{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "SW Power Cap",
           "refId": "B"
         },
@@ -1767,7 +1767,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_clocks_event_reasons_sw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_sw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_event_reasons_sw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_sw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "SW Thermal Slowdown",
           "refId": "C"
         },
@@ -1776,7 +1776,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_clocks_event_reasons_hw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_hw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_event_reasons_hw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_hw_thermal_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "HW Thermal Slowdown",
           "refId": "D"
         },
@@ -1785,7 +1785,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_clocks_event_reasons_hw_power_brake_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_hw_power_brake_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_event_reasons_hw_power_brake_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_hw_power_brake_slowdown{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "HW Power Brake",
           "refId": "E"
         },
@@ -1794,7 +1794,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_clocks_event_reasons_applications_clocks_setting{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_applications_clocks_setting{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_event_reasons_applications_clocks_setting{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_applications_clocks_setting{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "App Clocks Setting",
           "refId": "F"
         },
@@ -1803,7 +1803,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_clocks_event_reasons_sync_boost{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_sync_boost{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_clocks_event_reasons_sync_boost{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_clocks_throttle_reasons_sync_boost{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "Sync Boost",
           "refId": "G"
         }
@@ -1953,7 +1953,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "nvidia_smi_pstate{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_pstate{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "legendFormat": "P-State",
           "refId": "A"
         }
@@ -2061,7 +2061,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_memory_used_bytes{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_memory_used_bytes{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -2162,7 +2162,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_temperature_gpu{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_temperature_gpu{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -2258,7 +2258,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -2356,7 +2356,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_fan_speed_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+          "expr": "sum by(uuid) (nvidia_smi_fan_speed_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -2453,7 +2453,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / (nvidia_smi_enforced_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
+          "expr": "sum by(uuid) (nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} / (nvidia_smi_enforced_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}))",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -2551,7 +2551,7 @@
             "uid": "${datasource}"
           },
           "exemplar": true,
-          "expr": "rate(nvidia_smi_clocks_event_reasons_counters_sw_power_cap_seconds{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval])",
+          "expr": "sum by(uuid) (rate(nvidia_smi_clocks_event_reasons_counters_sw_power_cap_seconds{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval]))",
           "interval": "",
           "legendFormat": "{{uuid}}",
           "refId": "A"
@@ -2657,7 +2657,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_clocks_current_graphics_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -2754,7 +2754,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_clocks_current_video_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_clocks_current_video_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -2851,7 +2851,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_clocks_current_sm_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_clocks_current_sm_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -2948,7 +2948,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_clocks_current_memory_clock_hz{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -3061,7 +3061,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_utilization_encoder_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_utilization_encoder_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -3160,7 +3160,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_utilization_decoder_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_utilization_decoder_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -3259,7 +3259,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_encoder_stats_session_count{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_encoder_stats_session_count{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -3358,7 +3358,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_encoder_stats_average_fps{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_encoder_stats_average_fps{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -3456,7 +3456,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_encoder_stats_average_latency{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_encoder_stats_average_latency{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "format": "time_series",
               "interval": "",
               "legendFormat": "{{uuid}}",
@@ -4213,7 +4213,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "nvidia_smi_compute_apps_last_collect_success{instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(instance) (nvidia_smi_compute_apps_last_collect_success{instance=\"$node\", job=\"$job\"})",
               "legendFormat": "",
               "refId": "A"
             }
@@ -4296,7 +4296,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "nvidia_smi_graphics_apps_last_collect_success{instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(instance) (nvidia_smi_graphics_apps_last_collect_success{instance=\"$node\", job=\"$job\"})",
               "legendFormat": "",
               "refId": "A"
             }
@@ -4476,7 +4476,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "label_replace({__name__=~\"nvidia_smi_ecc_errors_uncorrected_.+\", uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}, \"kind\", \"$1\", \"__name__\", \"nvidia_smi_ecc_errors_uncorrected_(.+)\")",
+              "expr": "sum by(kind) (label_replace({__name__=~\"nvidia_smi_ecc_errors_uncorrected_.+\", uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}, \"kind\", \"$1\", \"__name__\", \"nvidia_smi_ecc_errors_uncorrected_(.+)\"))",
               "legendFormat": "{{kind}}",
               "refId": "A"
             }
@@ -4850,7 +4850,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_pcie_throughput_tx_bytes_per_second{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_pcie_throughput_tx_bytes_per_second{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "interval": "",
               "legendFormat": "TX",
               "refId": "A"
@@ -4861,7 +4861,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_pcie_throughput_rx_bytes_per_second{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_pcie_throughput_rx_bytes_per_second{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "interval": "",
               "legendFormat": "RX",
               "refId": "B"
@@ -4955,7 +4955,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "rate(nvidia_smi_energy_joules_total{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval])",
+              "expr": "sum by(uuid) (rate(nvidia_smi_energy_joules_total{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}[$__rate_interval]))",
               "interval": "",
               "legendFormat": "from energy counter",
               "refId": "A"
@@ -4966,7 +4966,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_power_draw_watts{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "interval": "",
               "legendFormat": "sampled power draw",
               "refId": "B"
@@ -5235,7 +5235,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_sm_activity_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_sm_activity_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "interval": "",
               "legendFormat": "Whole GPU",
               "refId": "B"
@@ -5341,7 +5341,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "nvidia_smi_tensor_activity_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"}",
+              "expr": "sum by(uuid) (nvidia_smi_tensor_activity_ratio{uuid=\"$gpu\", instance=\"$node\", job=\"$job\"})",
               "interval": "",
               "legendFormat": "Whole GPU",
               "refId": "B"
