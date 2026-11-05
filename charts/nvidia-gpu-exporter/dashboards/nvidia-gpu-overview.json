@@ -790,7 +790,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_utilization_gpu_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
+          "expr": "(nvidia_smi_utilization_gpu_ratio{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or on(uuid) (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
           "instant": true,
           "range": false,
           "refId": "B",
@@ -802,7 +802,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_memory_used_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_memory_total_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
+          "expr": "(nvidia_smi_memory_used_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / nvidia_smi_memory_total_bytes{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or on(uuid) (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
           "instant": true,
           "range": false,
           "refId": "C",
@@ -814,7 +814,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_temperature_gpu{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
+          "expr": "(nvidia_smi_temperature_gpu{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or on(uuid) (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
           "instant": true,
           "range": false,
           "refId": "D",
@@ -826,7 +826,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_power_draw_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / ((nvidia_smi_enforced_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) > 0)) or (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
+          "expr": "(nvidia_smi_power_draw_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} / ((nvidia_smi_enforced_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"} or nvidia_smi_power_default_limit_watts{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) > 0)) or on(uuid) (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
           "instant": true,
           "range": false,
           "refId": "E",
@@ -838,7 +838,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_pstate{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
+          "expr": "(nvidia_smi_pstate{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or on(uuid) (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
           "instant": true,
           "range": false,
           "refId": "F",
@@ -874,7 +874,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "(nvidia_smi_gpu_recovery_action{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
+          "expr": "(nvidia_smi_gpu_recovery_action{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) or on(uuid) (sum by(uuid, instance, job) (nvidia_smi_gpu_info{uuid=~\"$gpu\", instance=\"$node\", job=\"$job\"}) * 0 - 1)",
           "instant": true,
           "range": false,
           "refId": "I",
